@@ -8,7 +8,7 @@ services:
       - discovery.type=single-node
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
-      - DISABLE_SECURITY_PLUGIN=true   # Отключаем security (логин не нужен)
+      - DISABLE_SECURITY_PLUGIN=true   # - security 
     ulimits:
       memlock:
         soft: -1
@@ -23,7 +23,7 @@ services:
       - "5601:5601"
     environment:
       OPENSEARCH_HOSTS: '["http://opensearch-node1:9200"]'
-      OPENSEARCH_SECURITY_DISABLED: 'true'  # <-- отключаем безопасность для Dashboards
+      OPENSEARCH_SECURITY_DISABLED: 'true'  
     depends_on:
       - opensearch-node1
 
